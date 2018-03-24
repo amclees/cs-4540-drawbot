@@ -83,8 +83,8 @@ vector2* get_interpolated_points(vector2 pos1, vector2 pos2, int num_points) {
 const double epsilon = 0.01;
 
 vector2 get_target_angles(vector2 target_pos, vector2 start_ang, vector2 arm_len) {
-  double i = 0;
-  double j = 0;
+  double i = 270;
+  double j = 270;
 
   vector2 best_ang;
   best_ang.x = 0;
@@ -92,8 +92,11 @@ vector2 get_target_angles(vector2 target_pos, vector2 start_ang, vector2 arm_len
 
   double min_dist = 2000000000;
 
-  for (i = 0; i < 360; i++) {
-    for (j = 0; j < 360; j++) {
+  while (1) {
+    if (i == 360) i = 0;
+
+    while (1) {
+      if (j == 360) j = 0;
       vector2 ang;
       ang.x = i;
       ang.y = j;
@@ -107,7 +110,14 @@ vector2 get_target_angles(vector2 target_pos, vector2 start_ang, vector2 arm_len
           best_ang.y = j;
         }
       }
+      if (j == 269) break;
+      j++;
     }
+
+    if (i == 269) break;
+    i++;
   }
+
+  return best_ang;
 }
 
