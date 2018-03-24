@@ -2,6 +2,8 @@
 #include "draw.h"
 #include "math.h"
 
+const double STEP_COUNT = 4096.0;
+
 void follow_path(vector2* to_follow, int step, Stepper stepper1, Stepper stepper2) {
   vector2 current = to_follow[step * sizeof(vector2)];
   stepper1.step(current[0]);
@@ -9,7 +11,7 @@ void follow_path(vector2* to_follow, int step, Stepper stepper1, Stepper stepper
 }
 
 int ang_to_step(double ang) {
-  return (int) floor(((double) ang) * (4096.0 / 360.0));
+  return (int) floor(((double) ang) * (STEP_COUNT / 360.0));
 }
 
 path find_path(vector2 start_ang, vector2 target_ang) {
