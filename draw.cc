@@ -80,3 +80,34 @@ vector2* get_interpolated_points(vector2 pos1, vector2 pos2, int num_points) {
   return list;
 }
 
+const double epsilon = 0.01;
+
+vector2 get_target_angles(vector2 target_pos, vector2 start_ang, vector2 arm_len) {
+  double i = 0;
+  double j = 0;
+
+  vector2 best_ang;
+  best_ang.x = 0;
+  best_ang.y = 0;
+
+  double min_dist = 2000000000;
+
+  for (i = 0; i < 360; i++) {
+    for (j = 0; j < 360; j++) {
+      vector2 ang;
+      ang.x = i;
+      ang.y = j;
+      vector2 end = get_pos(ang, arm_len);
+      double dist = pow(pow(ang.x - end.x, 2), pow(ang.y - end.y, 2), 0.5);
+      if (dist < epsilon) {
+        double ang_dist = pow((pow(start_ang.x - i, 2) + pow(start_ang.y - j, 2)), 0.5);
+        if (ang_dist < min_dist) {
+          min_dist = ang_dist;
+          best_ang.x = i;
+          best_ang.y = j;
+        }
+      }
+    }
+  }
+}
+

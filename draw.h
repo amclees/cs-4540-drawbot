@@ -13,7 +13,7 @@ typedef struct {
   int length;
 } path;
 
-vector2 get_target_angles(vector2 target_pos, vector2 start_ang);
+vector2 get_target_angles(vector2 target_pos, vector2 start_ang, vector2 arm_len);
 
 vector2* get_interpolated_points(vector2 pos1, vector2 pos2, int num_points);
 
