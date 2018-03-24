@@ -1,19 +1,19 @@
 #ifndef ARDUINO_DRAW
 #define ARDUINO_DRAW
 
-struct vector2 {
+typedef struct {
   double x;
   double y;
-};
+} vector2;
 
-struct vector2 get_target_angles(struct vector2 target_pos, struct vector2 start_ang);
+vector2 get_target_angles(vector2 target_pos, vector2 start_ang);
 
-struct vector2* get_interpolated_points(struct vector2 pos1, struct vector2 pos2);
+vector2* get_interpolated_points(vector2 pos1, vector2 pos2);
 
-struct vector2 get_pos(struct vector2 ang, struct vector2 arm_len);
+vector2 get_pos(vector2 ang, vector2 arm_len);
 
-void follow_path(struct vector2* path, int step);
+void follow_path(vector2* path, int step);
 
-struct vector2* find_path(struct vector2 start_ang, struct vector2 target_ang);
+vector2* find_path(vector2 start_ang, vector2 target_ang);
 
 #endif
