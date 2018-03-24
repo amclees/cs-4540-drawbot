@@ -24,8 +24,8 @@ vector2* get_interpolated_points(vector2 pos1, vector2 pos2, int num_points)
 			vector2 pos;
 			pos.x = x;
 			pos.y = y;
+			list[counter] = pos;
 			counter++;
-			list[counter] = pos; 
 		}
 	}
 	else
@@ -38,8 +38,8 @@ vector2* get_interpolated_points(vector2 pos1, vector2 pos2, int num_points)
 			vector2 pos;
 			pos.x = x;
 			pos.y = y;
+			list[counter] = pos;
 			counter++;
-			list[counter] = pos; 	
 		}
 	}
 
