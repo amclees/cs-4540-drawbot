@@ -8,7 +8,7 @@ typedef struct {
 
 vector2 get_target_angles(vector2 target_pos, vector2 start_ang);
 
-vector2* get_interpolated_points(vector2 pos1, vector2 pos2);
+vector2* get_interpolated_points(vector2 pos1, vector2 pos2, int num_points);
 
 vector2 get_pos(vector2 ang, vector2 arm_len);
 
